@@ -1,0 +1,75 @@
+/** 定义自己常用的样式 */
+.flex-box {
+  box-sizing: border-box;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  &.flex-right {
+    justify-content: flex-end;
+  }
+  &.flex-center {
+    justify-content: center;
+  }
+  &.flex-left {
+    justify-content: flex-start;
+  }
+  &.flex-around {
+    justify-content: space-around;
+  }
+  &.flex-between {
+    justify-content: space-between;
+  }
+  &.flex-column {
+    flex-direction: column;
+  }
+}
+
+/* 动画 */
+@keyframes infirst {
+  from {
+    bottom: -300px;
+    // background: red;
+  }
+  to {
+    bottom: 160px;
+  }
+}
+@keyframes infade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dot {
+  33% {
+    transform: translateY(-2em);
+  }
+  66% {
+    transform: translateY(-1em);
+  }
+}
+
+@keyframes rotate-360 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.up-enter-active,
+.up-leave-active {
+  transition: all .6s ease;
+}
+.up-enter-from,
+.up-leave-to {
+  opacity: 0;
+  // transform: translateY(-100%);
+}

@@ -1,0 +1,12 @@
+<template>
+  <div class="my-input">
+    <label for="input"></label>
+    <input type="text" />
+  </div>
+</template>
+
+<script>
+  export default {}
+</script>
+
+<style></style>
