@@ -1,6 +1,6 @@
 <template>
   <div :class="`wrapper app-${showType}`">
-    <transition name="up">
+    <transition v-if="showType === 'loading'" name="up">
       <loading v-if="showType === 'loading'" />
     </transition>
     <transition name="up">

@@ -1,5 +1,5 @@
 const state = {
-  showType: 'award'
+  showType: 'loading'
 }
 
 export default state

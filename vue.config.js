@@ -1,18 +1,18 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV !== "production" ? "/" : "/h5",
+  publicPath: process.env.NODE_ENV !== 'production' ? '/' : '/h5',
   chainWebpack: (config) => {
-    if (process.env.NODE_ENV === "production") {
-      config.output.filename("[name].[hash].js").end();
+    if (process.env.NODE_ENV === 'production') {
+      config.output.filename('[name].[hash].js').end()
     }
   },
   pluginOptions: {
-    "style-resources-loader": {
-      preProcessor: "less",
-      patterns: ["./src/less/var.less"],
-    },
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: ['./src/less/var.less']
+    }
   },
   productionSourceMap: false,
   devServer: {
-    port: 2022,
-  },
-};
+    port: 2022
+  }
+}
