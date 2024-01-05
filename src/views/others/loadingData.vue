@@ -9,36 +9,54 @@
   </div>
 </template>
 
-<script>
-  import { defineComponent, onMounted, ref } from 'vue'
-  export default defineComponent({
-    props: {
-      title: {
-        type: String
-      }
-    },
-    setup() {
-      const loadPercent = ref(5)
+<script setup>
+  import { onMounted, ref } from 'vue'
+  import store from '@/store'
 
-      onMounted(() => {
-        setFullImg()
-      })
+  const loadPercent = ref(5)
 
-      const setFullImg = () => {
-        const t = setInterval(() => {
-          loadPercent.value += 1
-          if (loadPercent.value === 100) {
-            clearInterval(t)
-          }
-          console.log(loadPercent.value)
-        }, 100)
+  const setFullImg = () => {
+    const t = setInterval(() => {
+      loadPercent.value += 1
+      if (loadPercent.value === 100) {
+        clearInterval(t)
+        store.commit('changeShowType', 'introduce')
       }
+      console.log(loadPercent.value)
+    }, 100)
+  }
 
-      return {
-        loadPercent
-      }
-    }
+  onMounted(() => {
+    setFullImg()
   })
+  // export default defineComponent({
+  //   props: {
+  //     title: {
+  //       type: String
+  //     }
+  //   },
+  //   setup() {
+  //     const loadPercent = ref(5)
+
+  //     onMounted(() => {
+  //       setFullImg()
+  //     })
+
+  //     const setFullImg = () => {
+  //       const t = setInterval(() => {
+  //         loadPercent.value += 1
+  //         if (loadPercent.value === 100) {
+  //           clearInterval(t)
+  //         }
+  //         console.log(loadPercent.value)
+  //       }, 100)
+  //     }
+
+  //     return {
+  //       loadPercent
+  //     }
+  //   }
+  // })
 </script>
 
 <style lang="less">

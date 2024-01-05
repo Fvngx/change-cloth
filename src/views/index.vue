@@ -1,60 +1,62 @@
 <template>
   <div :class="`wrapper app-${showType}`">
-    <transition v-if="showType === 'loading'" name="up">
-      <loading v-if="showType === 'loading'" />
-    </transition>
     <transition name="up">
-      <introduce v-if="showType === 'introduce'" />
-    </transition>
-    <transition name="up">
-      <register v-if="showType === 'register'" />
-    </transition>
-    <transition name="up">
-      <pic-choose v-if="showType === 'picChoose'" />
-    </transition>
-    <transition name="up">
-      <my-mass v-if="showType === 'mass'" />
-    </transition>
-    <transition name="up">
-      <award v-if="showType === 'award'" />
+      <loadingData key="1" v-if="showType === 'loading'" />
+      <!-- </transition>
+    <transition name="up"> -->
+      <introduce key="2" v-else-if="showType === 'introduce'" />
+      <!-- </transition>
+    <transition name="up"> -->
+      <register key="3" v-else-if="showType === 'register'" />
+      <!-- </transition>
+    <transition name="up"> -->
+      <pic-choose key="4" v-else-if="showType === 'picChoose'" />
+      <!-- </transition>
+    <transition name="up"> -->
+      <my-mass key="5" v-else-if="showType === 'mass'" />
+      <!-- </transition>
+    <transition name="up"> -->
+      <award key="6" v-else-if="showType === 'award'" />
     </transition>
   </div>
 </template>
 
-<script>
-  import { defineComponent, onMounted } from 'vue'
-  import loading from './others/loadingData.vue'
+<script setup>
+  import { computed } from 'vue'
+  import loadingData from './others/loadingData.vue'
   import introduce from './others/introduce.vue'
   import register from './others/register.vue'
   import picChoose from './others/pic-choose.vue'
-  import PicChoose from './others/pic-choose.vue'
   import myMass from './others/mass.vue'
   import award from './others/award.vue'
-  export default defineComponent({
-    components: {
-      loading,
-      introduce,
-      register,
-      picChoose,
-      PicChoose,
-      myMass,
-      award
-    },
-    computed: {
-      showType() {
-        return this.$store.state.showType
-      }
-    },
-    setup() {
-      // const showType = ref('introduce')
-      onMounted(() => {
-        // showType.value = 'introduce'
-      })
-      return {
-        // showType
-      }
-    }
-  })
+
+  import store from '@/store'
+
+  const showType = computed(() => store.state.showType)
+  // export default defineComponent({
+  //   components: {
+  //     loading,
+  //     introduce,
+  //     register,
+  //     picChoose,
+  //     myMass,
+  //     award
+  //   },
+  //   computed: {
+  //     showType() {
+  //       return this.$store.state.showType
+  //     }
+  //   },
+  //   setup() {
+  //     // const showType = ref('introduce')
+  //     onMounted(() => {
+  //       // showType.value = 'introduce'
+  //     })
+  //     return {
+  //       // showType
+  //     }
+  //   }
+  // })
 </script>
 
 <style lang="less">
