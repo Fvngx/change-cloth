@@ -1,17 +1,20 @@
 <template>
-  <div class="loading flex-box flex flex-column flex-center">
-    <div class="skill-bar">
-      <div class="filled" :data-width="loadPercent + '%'" :style="`width:${loadPercent}%`">
-        <div class="filed-circle"></div>
+  <div class="loading">
+    <div class="logo"></div>
+    <div class="fit flex-box flex flex-column flex-center">
+      <div class="skill-bar">
+        <div class="filled" :data-width="loadPercent + '%'" :style="`width:${loadPercent}%`">
+          <div class="filed-circle"></div>
+        </div>
       </div>
+      <div class="load-title">正在加载中 <dot>...</dot></div>
     </div>
-    <div class="load-title">正在加载中 <dot>...</dot></div>
   </div>
 </template>
 
 <script setup>
   import { onMounted, ref } from 'vue'
-  import store from '@/store'
+  // import store from '@/store'
 
   const loadPercent = ref(5)
 
@@ -20,7 +23,7 @@
       loadPercent.value += 1
       if (loadPercent.value === 100) {
         clearInterval(t)
-        store.commit('changeShowType', 'introduce')
+        // store.commit('changeShowType', 'introduce')
       }
       console.log(loadPercent.value)
     }, 100)
@@ -61,9 +64,18 @@
 
 <style lang="less">
   .loading {
+    position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: @main-bg;
+    background: @main-bg url('./../../assets/img/bg/bg1.png') no-repeat center center;
+    background-size: cover;
+    .logo {
+      position: absolute;
+      width: 80vw;
+      height: 20vw;
+      background: @main-bg url('./../../assets/img/other/logo.png') no-repeat center center;
+      background-size: cover;
+    }
     .skill-bar {
       width: 80vw;
       height: 20px;
