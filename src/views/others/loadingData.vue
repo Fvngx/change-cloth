@@ -66,11 +66,11 @@
     let onloadarr = []
     // console.log(arr)
 
-    let backFun = (i, url) => {
+    let backFun = () => {
       loadNum += 1
       loadPercent.value = (loadNum / arr.length) * 100
-      console.log(i, url)
-      console.log(loadNum, arr.length, loadNum / arr.length, 1 / 2)
+      // console.log(i, url)
+      // console.log(loadNum, arr.length, loadNum / arr.length, 1 / 2)
       if (loadNum === arr.length - 1) {
         // console.log('11111')
 
@@ -84,7 +84,7 @@
       onloadarr[i] = new Image()
       onloadarr[i].onload = () => {
         // console.log(i, arr[i])
-        backFun(i, arr[i])
+        backFun()
       }
       onloadarr[i].src = arr[i]
       console.log(i, arr[i])
