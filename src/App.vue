@@ -1,5 +1,5 @@
 <template>
-  <audio id="myAudio" :src="'/h5/jf2020/music/bgm.mp3?v=3'" autoplay muted loop="loop"></audio>
+  <audio id="myAudio" :src="'/assets/music/bgm.mp3?v=31'" autoplay muted loop="loop"></audio>
   <HomeIndex />
 </template>
 
@@ -49,5 +49,6 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background-color: @main-bg;
   }
 </style>
