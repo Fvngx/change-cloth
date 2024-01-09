@@ -3,11 +3,14 @@ const v = 'v=1'
 export default {
   bg: {
     bg1: _baseurl + '/img/bg/bg1.jpg?' + v,
-    bg2: _baseurl + '/img/bg/bg2.png?' + v
+    bg2: _baseurl + '/img/bg/bg2.png?' + v,
+    bg3: _baseurl + '/img/bg/bg3.png?' + v
   },
   btn: {
     fenxiang: _baseurl + '/img/btn/fenxiang.png?' + v,
-    xuanze: _baseurl + '/img/btn/xuanze.png?' + v
+    xuanze: _baseurl + '/img/btn/xuanze.png?' + v,
+    queding: _baseurl + '/img/btn/queding.png?' + v,
+    guize: _baseurl + '/img/btn/guize.png?' + v
   },
   other: {
     long_txt: _baseurl + '/img/other/long_txt.png?' + v,
@@ -28,6 +31,7 @@ export default {
     haoyouzhuli: _baseurl + '/img/other/haoyouzhuli.png?' + v,
     youxiguize: _baseurl + '/img/other/youxiguize.png?' + v,
     wodebizhi: _baseurl + '/img/other/wodebizhi.png?' + v,
+    ruletxt: _baseurl + '/img/other/ruletxt.png?' + v,
     yun_ceng: _baseurl + '/img/other/yun_ceng.png?' + v
   }
 }
