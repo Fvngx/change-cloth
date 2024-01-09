@@ -1,5 +1,5 @@
 const state = {
-  showType: 'loading'
+  showType: 'introduce'
 }
 
 export default state

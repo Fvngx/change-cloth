@@ -1,13 +1,13 @@
 <template>
-  <div class="loading center-bg" style="background-image: url('/assets/img/bg/bg1.jpg')">
-    <div class="logo center-bg" style="background-image: url('/assets/img/other/logo.png')"></div>
-    <div class="long-txt center-bg" style="background-image: url('/assets/img/other/long_txt.png')"></div>
+  <div class="loading center-bg" :style="`background-image: url(${data.bg.bg1})`">
+    <div class="logo center-bg" :style="`background-image: url(${data.other.logo})`"></div>
+    <div class="long-txt center-bg" :style="`background-image: url(${data.other.long_txt})`"></div>
 
-    <div class="long center-bg" style="background-image: url('/assets/img/other/long.png')"></div>
-    <div class="yun center-bg" style="background-image: url('/assets/img/other/yun_ceng.png')"></div>
+    <div class="long center-bg" :style="`background-image: url(${data.other.long})`"></div>
+    <div class="yun center-bg" :style="`background-image: url(${data.other.yun_ceng})`"></div>
 
-    <div class="loading-box center-bg" style="background-image: url('/assets/img/bg/bg2.png')">
-      <div class="loading-title center-bg" style="background-image: url('/assets/img/other/hua_long_red.png')"></div>
+    <div class="loading-box center-bg" :style="`background-image: url(${data.bg.bg2}) `">
+      <div class="loading-title center-bg" :style="`background-image: url(${data.other.hua_long_red}) `"></div>
       <div class="loading-bar fit flex-box flex flex-column flex-center">
         <div class="skill-bar">
           <div class="filled" :data-width="loadPercent + '%'" :style="`width:${loadPercent}%`">
@@ -64,17 +64,12 @@
 
   const getLoadImg = (arr) => {
     let onloadarr = []
-    // console.log(arr)
-
     let backFun = () => {
       loadNum += 1
       loadPercent.value = (loadNum / arr.length) * 100
-      // console.log(i, url)
-      // console.log(loadNum, arr.length, loadNum / arr.length, 1 / 2)
-      if (loadNum === arr.length - 1) {
-        // console.log('11111')
-
+      if (loadNum === arr.length) {
         mytime = setTimeout(() => {
+          // console.log(1111)
           clearTimeout(mytime)
         }, 500)
       }
@@ -83,11 +78,9 @@
     for (let i = 0; i < arr.length; i++) {
       onloadarr[i] = new Image()
       onloadarr[i].onload = () => {
-        // console.log(i, arr[i])
         backFun()
       }
       onloadarr[i].src = arr[i]
-      console.log(i, arr[i])
     }
   }
 
@@ -141,7 +134,7 @@
       position: absolute;
       width: 76vw;
       height: 20vw;
-      top: 8vw;
+      top: 7vw;
       left: 12vw;
     }
     .long-txt {

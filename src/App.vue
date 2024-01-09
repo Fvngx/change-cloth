@@ -1,5 +1,5 @@
 <template>
-  <audio id="myAudio" :src="'/assets/music/bgm.mp3?v=31'" autoplay muted loop="loop"></audio>
+  <audio id="myAudio" :src="'/assets/music/bgm.mp3?v=1'" autoplay muted loop="loop"></audio>
   <HomeIndex />
 </template>
 
@@ -14,20 +14,20 @@
     },
     setup() {
       onMounted(() => {
-        // document.addEventListener('DOMContentLoaded', function () {
-        //   function audioAutoPlay() {
-        //     console.log(1111)
-        //     document.getElementById('myAudio').play()
-        //     document.addEventListener(
-        //       'WeixinJSBridgeReady',
-        //       function () {
-        //         document.getElementById('myAudio').play()
-        //       },
-        //       false
-        //     )
-        //   }
-        //   audioAutoPlay()
-        // })
+        document.addEventListener('DOMContentLoaded', function () {
+          function audioAutoPlay() {
+            console.log(1111)
+            document.getElementById('myAudio').play()
+            document.addEventListener(
+              'WeixinJSBridgeReady',
+              function () {
+                document.getElementById('myAudio').play()
+              },
+              false
+            )
+          }
+          audioAutoPlay()
+        })
       })
     }
   }

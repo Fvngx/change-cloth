@@ -5,6 +5,10 @@ export default {
     bg1: _baseurl + '/img/bg/bg1.jpg?' + v,
     bg2: _baseurl + '/img/bg/bg2.png?' + v
   },
+  btn: {
+    fenxiang: _baseurl + '/img/btn/fenxiang.png?' + v,
+    xuanze: _baseurl + '/img/btn/xuanze.png?' + v
+  },
   other: {
     long_txt: _baseurl + '/img/other/long_txt.png?' + v,
     long: _baseurl + '/img/other/long.png?' + v,
@@ -18,7 +22,12 @@ export default {
     jinmao: _baseurl + '/img/other/jinmao.png?' + v,
     yunlu: _baseurl + '/img/other/yunlu.png?' + v,
     haiyue: _baseurl + '/img/other/haiyue.png?' + v,
+    manyue: _baseurl + '/img/other/manyue.png?' + v,
     yun: _baseurl + '/img/other/yun.png?' + v,
+    menuborder: _baseurl + '/img/other/menuborder.png?' + v,
+    haoyouzhuli: _baseurl + '/img/other/haoyouzhuli.png?' + v,
+    youxiguize: _baseurl + '/img/other/youxiguize.png?' + v,
+    wodebizhi: _baseurl + '/img/other/wodebizhi.png?' + v,
     yun_ceng: _baseurl + '/img/other/yun_ceng.png?' + v
   }
 }
