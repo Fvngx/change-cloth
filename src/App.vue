@@ -51,4 +51,11 @@
     overflow: hidden;
     background-color: @main-bg;
   }
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #b2170d;
+    border-radius: 2px;
+  }
 </style>

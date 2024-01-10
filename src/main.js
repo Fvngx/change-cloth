@@ -2,6 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import store from '@/store'
 import loading from '@/plugins/loading/index.js'
+import Carousel3d from 'vue3-carousel-3d'
+
+import 'vue3-carousel-3d/dist/index.css'
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('开发环境')
@@ -13,4 +16,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = createApp(App)
 app.config.globalProperties.$loading = loading
-app.use(store).mount('#app')
+app.use(store).use(Carousel3d).mount('#app')

@@ -14,6 +14,17 @@
       <div class="txt">今日已分享1次</div>
       <munes />
     </div>
+
+    <div v-if="showBizhi" class="introduce-fixed">
+      <div class="body">
+        <div class="content center-bg" :style="`background-image: url(${data.bg.bizhi1})`"></div>
+        <div
+          class="queding-btn center-bg"
+          :style="`background-image: url(${data.btn.queding})`"
+          @click="hideFixed"
+        ></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,44 +37,53 @@
     {
       id: '1',
       name: '云起东方',
+      type: 'jinmao',
       img: data.other.jinmao
     },
     {
       id: '2',
       name: '五缘海悦',
+      type: 'haiyue',
       img: data.other.haiyue
     },
     {
       id: '3',
       name: '建发·缦玥长滩',
+      type: 'manyue',
       img: data.other.manyue
     },
     {
       id: '4',
       name: '建发招商璟云',
+      type: 'jinyun',
       img: data.other.jinyun
     },
     {
       id: '5',
       name: '建发·叁里云庐',
+      type: 'yunlu',
       img: data.other.yunlu
     },
     {
       id: '6',
       name: '建发·书香泊月',
+      type: 'boyue',
       img: data.other.boyue
     },
     {
       id: '7',
       name: '建发·文澜春晓',
+      type: 'wenlan',
       img: data.other.wenlan
     },
     {
       id: '8',
       name: '湖畔润璟',
+      type: 'runjing',
       img: data.other.runjing
     }
   ])
+  const showBizhi = ref(false)
 
   const toSquare = (item) => {
     console.log(item)
@@ -71,6 +91,10 @@
 
   const toShare = () => {
     console.log('share')
+  }
+
+  const hideFixed = () => {
+    showBizhi.value = false
   }
 </script>
 
@@ -140,6 +164,26 @@
         margin-top: 4vw;
         font-weight: bolder;
         font-size: 14px;
+      }
+    }
+    .introduce-fixed {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      .body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .content {
+          width: 67vw;
+          height: 92.5vw;
+        }
       }
     }
   }

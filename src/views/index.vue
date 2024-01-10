@@ -2,22 +2,24 @@
   <div :class="`wrapper app-${showType}`">
     <transition name="up">
       <loadingData key="1" v-if="showType === 'loading'" />
-      <!-- </transition>
-    <transition name="up"> -->
-      <introduce key="2" v-else-if="showType === 'introduce'" />
-      <!-- </transition>
-    <transition name="up"> -->
-      <register key="3" v-else-if="showType === 'register'" />
-      <!-- </transition>
-    <transition name="up"> -->
-      <pic-choose key="4" v-else-if="showType === 'picChoose'" />
-      <!-- </transition>
-    <transition name="up"> -->
-      <my-mass key="5" v-else-if="showType === 'mass'" />
-      <!-- </transition>
-    <transition name="up"> -->
-      <award key="6" v-else-if="showType === 'award'" />
     </transition>
+    <transition name="up">
+      <introduce key="2" v-if="showType === 'introduce'" />
+    </transition>
+    <transition name="up">
+      <zhulipage key="3" v-if="showType === 'zhuli'" />
+    </transition>
+    <transition name="up" v-if="showType === 'draw'">
+      <drawcanvas />
+    </transition>
+    <!-- <register key="3" v-else-if="showType === 'register'" /> -->
+    <!-- <transition name="up"> -->
+    <!-- <pic-choose key="4" v-else-if="showType === 'picChoose'" /> -->
+    <!-- </transition> -->
+    <!-- <transition name="up"> -->
+    <!-- <my-mass key="5" v-else-if="showType === 'mass'" /> -->
+    <!-- </transition> -->
+    <!-- <award key="6" v-else-if="showType === 'award'" /> -->
   </div>
 </template>
 
@@ -25,10 +27,12 @@
   import { computed } from 'vue'
   import loadingData from './others/loadingData.vue'
   import introduce from './others/introduce.vue'
-  import register from './others/register.vue'
-  import picChoose from './others/pic-choose.vue'
-  import myMass from './others/mass.vue'
-  import award from './others/award.vue'
+  import zhulipage from './others/zhuli.vue'
+  import drawcanvas from './others/drawcanvas.vue'
+  // import register from './others/register.vue'
+  // import picChoose from './others/pic-choose.vue'
+  // import myMass from './others/mass.vue'
+  // import award from './others/award.vue'
 
   import store from '@/store'
 

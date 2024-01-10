@@ -4,13 +4,31 @@ export default {
   bg: {
     bg1: _baseurl + '/img/bg/bg1.jpg?' + v,
     bg2: _baseurl + '/img/bg/bg2.png?' + v,
-    bg3: _baseurl + '/img/bg/bg3.png?' + v
+    bg3: _baseurl + '/img/bg/bg3.png?' + v,
+    bg4: _baseurl + '/img/bg/bg4.png?' + v,
+    bizhi1: _baseurl + '/img/bg/bizhi1.png?' + v
   },
   btn: {
     fenxiang: _baseurl + '/img/btn/fenxiang.png?' + v,
     xuanze: _baseurl + '/img/btn/xuanze.png?' + v,
     queding: _baseurl + '/img/btn/queding.png?' + v,
-    guize: _baseurl + '/img/btn/guize.png?' + v
+    zhuli: _baseurl + '/img/btn/zhuli.png?' + v,
+    bizhi: _baseurl + '/img/btn/bizhi.png?' + v,
+    zhaohuan: _baseurl + '/img/btn/zhaohuan.png?' + v,
+    guize: _baseurl + '/img/btn/guize.png?' + v,
+    hecheng: _baseurl + '/img/btn/hecheng.png?' + v,
+    weita: _baseurl + '/img/btn/weita.png?' + v,
+    metoo: _baseurl + '/img/btn/metoo.png?' + v
+  },
+  banner: {
+    wenlan: _baseurl + '/img/other/wenlan.jpg?' + v,
+    boyue: _baseurl + '/img/other/boyue.jpg?' + v,
+    runjing: _baseurl + '/img/other/runjing.jpg?' + v,
+    jinyun: _baseurl + '/img/other/jinyun.jpg?' + v,
+    jinmao: _baseurl + '/img/other/jinmao.jpg?' + v,
+    yunlu: _baseurl + '/img/other/yunlu.jpg?' + v,
+    haiyue: _baseurl + '/img/other/haiyue.jpg?' + v,
+    manyue: _baseurl + '/img/other/manyue.jpg?' + v
   },
   other: {
     long_txt: _baseurl + '/img/other/long_txt.png?' + v,
@@ -32,6 +50,7 @@ export default {
     youxiguize: _baseurl + '/img/other/youxiguize.png?' + v,
     wodebizhi: _baseurl + '/img/other/wodebizhi.png?' + v,
     ruletxt: _baseurl + '/img/other/ruletxt.png?' + v,
+    guang: _baseurl + '/img/other/guang.png?' + v,
     yun_ceng: _baseurl + '/img/other/yun_ceng.png?' + v
   }
 }

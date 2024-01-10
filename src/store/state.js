@@ -1,5 +1,6 @@
 const state = {
-  showType: 'introduce'
+  showType: 'draw',
+  square: ''
 }
 
 export default state
