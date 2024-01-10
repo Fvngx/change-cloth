@@ -260,6 +260,18 @@
         </div>
       </div>
     </div>
+    <div class="fixed">
+      <div class="body">
+        <div class="content shen-long-content center-bg" :style="`background-image: url(${data.other.guang})`">
+          <div class="shen-long center-bg" :style="`background-image: url(${data.btn.hecheng})`"></div>
+        </div>
+        <div
+          class="queding-btn center-bg"
+          :style="`background-image: url(${data.btn.queding})`"
+          @click="hideFixed"
+        ></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -506,6 +518,10 @@
             left: -3vw;
           }
         }
+      }
+      .shen-long-content {
+        width: 100vw;
+        height: 131vw;
       }
       .queding-btn {
         width: 34vw;

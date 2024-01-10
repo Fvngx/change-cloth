@@ -31,7 +31,7 @@
 <script setup>
   import { ref } from 'vue'
   import data from '@/js/data'
-  // import store from '@/store'
+  import store from '@/store'
   import munes from '../../components/munes.vue'
   const list = ref([
     {
@@ -87,6 +87,7 @@
 
   const toSquare = (item) => {
     console.log(item)
+    store.commit('changeSquare', item.type)
   }
 
   const toShare = () => {

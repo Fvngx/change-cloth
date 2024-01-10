@@ -1,6 +1,6 @@
 const state = {
   showType: 'draw',
-  square: ''
+  square: 'jinmao'
 }
 
 export default state

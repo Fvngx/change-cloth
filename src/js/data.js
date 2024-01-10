@@ -6,6 +6,8 @@ export default {
     bg2: _baseurl + '/img/bg/bg2.png?' + v,
     bg3: _baseurl + '/img/bg/bg3.png?' + v,
     bg4: _baseurl + '/img/bg/bg4.png?' + v,
+    bg5: _baseurl + '/img/bg/bg5.png?' + v,
+    default: _baseurl + '/img/bg/default.png?' + v,
     bizhi1: _baseurl + '/img/bg/bizhi1.png?' + v
   },
   btn: {
@@ -18,17 +20,26 @@ export default {
     guize: _baseurl + '/img/btn/guize.png?' + v,
     hecheng: _baseurl + '/img/btn/hecheng.png?' + v,
     weita: _baseurl + '/img/btn/weita.png?' + v,
-    metoo: _baseurl + '/img/btn/metoo.png?' + v
+    metoo: _baseurl + '/img/btn/metoo.png?' + v,
+    reset: _baseurl + '/img/btn/reset.png?' + v,
+    draw: _baseurl + '/img/btn/draw.png?' + v,
+    down: _baseurl + '/img/btn/down.png?' + v,
+    usebizhi: _baseurl + '/img/btn/usebizhi.png?' + v,
+    shareto: _baseurl + '/img/btn/shareto.png?' + v,
+    back: _baseurl + '/img/btn/back.png?' + v,
+    tool: _baseurl + '/img/btn/tool.png?' + v,
+    pre: _baseurl + '/img/btn/pre.png?' + v,
+    create: _baseurl + '/img/btn/create.png?' + v
   },
   banner: {
-    wenlan: _baseurl + '/img/other/wenlan.jpg?' + v,
-    boyue: _baseurl + '/img/other/boyue.jpg?' + v,
-    runjing: _baseurl + '/img/other/runjing.jpg?' + v,
-    jinyun: _baseurl + '/img/other/jinyun.jpg?' + v,
-    jinmao: _baseurl + '/img/other/jinmao.jpg?' + v,
-    yunlu: _baseurl + '/img/other/yunlu.jpg?' + v,
-    haiyue: _baseurl + '/img/other/haiyue.jpg?' + v,
-    manyue: _baseurl + '/img/other/manyue.jpg?' + v
+    wenlan: _baseurl + '/img/banner/wenlan.jpg?' + v,
+    boyue: _baseurl + '/img/banner/boyue.jpg?' + v,
+    runjing: _baseurl + '/img/banner/runjing.jpg?' + v,
+    jinyun: _baseurl + '/img/banner/jinyun.jpg?' + v,
+    jinmao: _baseurl + '/img/banner/jinmao.jpg?' + v,
+    yunlu: _baseurl + '/img/banner/yunlu.jpg?' + v,
+    haiyue: _baseurl + '/img/banner/haiyue.jpg?' + v,
+    manyue: _baseurl + '/img/banner/manyue.jpg?' + v
   },
   other: {
     long_txt: _baseurl + '/img/other/long_txt.png?' + v,
@@ -51,6 +62,10 @@ export default {
     wodebizhi: _baseurl + '/img/other/wodebizhi.png?' + v,
     ruletxt: _baseurl + '/img/other/ruletxt.png?' + v,
     guang: _baseurl + '/img/other/guang.png?' + v,
+    shenlong: _baseurl + '/img/other/shenlong.png?' + v,
+    head: _baseurl + '/img/other/head.png?' + v,
+    yun1: _baseurl + '/img/other/yun1.png?' + v,
+    line: _baseurl + '/img/other/line.png?' + v,
     yun_ceng: _baseurl + '/img/other/yun_ceng.png?' + v
   }
 }
