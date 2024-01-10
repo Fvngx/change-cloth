@@ -263,7 +263,7 @@
     <div class="fixed">
       <div class="body">
         <div class="content shen-long-content center-bg" :style="`background-image: url(${data.other.guang})`">
-          <div class="shen-long center-bg" :style="`background-image: url(${data.btn.hecheng})`"></div>
+          <div class="shen-long center-bg" :style="`background-image: url(${data.other.shenlong})`"></div>
         </div>
         <div
           class="queding-btn center-bg"
@@ -522,6 +522,13 @@
       .shen-long-content {
         width: 100vw;
         height: 131vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .shen-long {
+          width: 67vw;
+          height: 92.5vw;
+        }
       }
       .queding-btn {
         width: 34vw;
