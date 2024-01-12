@@ -1,5 +1,5 @@
 const state = {
-  showType: 'draw',
+  showType: 'introduce',
   square: 'jinmao'
 }
 

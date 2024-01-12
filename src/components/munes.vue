@@ -35,168 +35,156 @@
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
             <div class="user-item">
               <div class="user">
                 <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
                 <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">WEsdfasdfsdfsfa</span>
                 </div>
               </div>
               <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="line">感谢ta的帮助</div>
-                <div class="line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">感谢ta的帮助</div>
+                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
               </div>
             </div>
           </div>
@@ -399,6 +387,7 @@
     height: 100%;
     top: 0;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
     .body {
       position: relative;
       width: 100%;
@@ -420,9 +409,9 @@
         }
         .text-box {
           width: 70vw;
-          height: 93vw;
+          height: 99vw;
           margin-left: 5vw;
-          margin-top: 12vw;
+          margin-top: 10vw;
         }
       }
       .user-content {
@@ -453,11 +442,11 @@
               .user-name {
                 position: relative;
                 width: 90px;
-                height: 30px;
+                // height: 30px;
                 font-size: 12px;
                 color: #b2170d;
                 // font-weight: bold;
-                .txt {
+                .name-txt {
                   position: absolute;
                   text-align: start;
                   width: 120%;
@@ -470,7 +459,7 @@
                 }
               }
             }
-            .line {
+            .name-line {
               text-align: end;
               font-size: 12px;
               color: #b2170d;

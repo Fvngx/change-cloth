@@ -31,7 +31,9 @@ export default {
     back: _baseurl + '/img/btn/back.png?' + v,
     tool: _baseurl + '/img/btn/tool.png?' + v,
     pre: _baseurl + '/img/btn/pre.png?' + v,
-    create: _baseurl + '/img/btn/create.png?' + v
+    create: _baseurl + '/img/btn/create.png?' + v,
+    jifen: _baseurl + '/img/btn/jifen.png?' + v,
+    active: _baseurl + '/img/btn/active.png?' + v
   },
   banner: {
     wenlan: _baseurl + '/img/banner/wenlan.jpg?' + v,
