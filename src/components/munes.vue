@@ -6,6 +6,9 @@
     <div class="menu" @click="clickMenu('bizhi')">
       <div class="img center-bg" :style="`background-image: url(${data.other.wodebizhi})`"></div>
     </div>
+    <div class="menu" @click="clickMenu('zuopin')">
+      <div class="img center-bg" :style="`background-image: url(${data.other.wodezuopin})`"></div>
+    </div>
     <div class="menu" @click="clickMenu('zhuli')">
       <div class="img img3 center-bg" :style="`background-image: url(${data.other.haoyouzhuli})`"></div>
     </div>
@@ -246,6 +249,41 @@
         ></div>
       </div>
     </div>
+    <div v-else-if="fixed === 'showZuopin'" class="fixed">
+      <div class="body">
+        <div class="content zuopin-content center-bg" :style="`background-image: url(${data.bg.bg6})`">
+          <div class="title center-bg" :style="`background-image: url(${data.btn.zuopin})`"></div>
+          <carousel-3d
+            ref="carousel"
+            @before-slide-change="onSlideChange"
+            :autoplayTimeout="3000"
+            :perspective="35"
+            :display="3"
+            :animationSpeed="1000"
+            :width="172"
+            :height="248"
+            :controlsVisible="false"
+            :controlsHeight="60"
+          >
+            <slide v-for="(item, i) in slides" :index="i" :key="i">
+              <img :src="item.src" alt="img" />
+            </slide>
+          </carousel-3d>
+          <div class="zhaohuan-box center-bg" :style="`background-image: url(${data.bg.bg4})`">
+            <div
+              class="zhaohuan center-bg"
+              :style="`background-image: url(${data.btn.zhaohuan})`"
+              @click="zhuanhuan"
+            ></div>
+          </div>
+        </div>
+        <div
+          class="queding-btn center-bg"
+          :style="`background-image: url(${data.btn.queding})`"
+          @click="hideFixed"
+        ></div>
+      </div>
+    </div>
     <div v-else-if="fixed === 'showHecheng'" class="fixed">
       <div class="body">
         <div class="content hecheng-content">
@@ -260,9 +298,9 @@
         </div>
       </div>
     </div>
-    <div class="fixed">
+    <div v-else-if="fixed === 'showShenlong'" class="fixed">
       <div class="body">
-        <div class="content shen-long-content center-bg" :style="`background-image: url(${data.other.guang})`">
+        <div class="content shen-long-content center-bg" :style="`background-image: url(${data.other.guang2})`">
           <div class="shen-long center-bg" :style="`background-image: url(${data.other.shenlong})`"></div>
         </div>
         <div
@@ -311,6 +349,8 @@
       fixed.value = 'showRule'
     } else if (p === 'bizhi') {
       fixed.value = 'showBizhi'
+    } else if (p === 'zuopin') {
+      fixed.value = 'showZuopin'
     } else if (p === 'zhuli') {
       fixed.value = 'showZhuli'
     }
@@ -323,6 +363,10 @@
   const zhuanhuan = () => {
     console.log('zhaohuan')
     fixed.value = 'showHecheng'
+    let timer = setTimeout(() => {
+      clearTimeout(timer)
+      fixed.value = 'showShenlong'
+    }, 1000)
   }
 </script>
 
@@ -330,22 +374,22 @@
   .menus {
     margin-top: 4vw;
     width: 100vw;
-    height: 10.5vw;
+    height: 9.8vw;
     background-color: #7e0202;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .menu {
-      width: 33.3vw;
+      width: 25vw;
       display: flex;
       align-items: center;
       justify-content: center;
       .img {
-        width: 20vw;
-        height: 4.5vw;
+        width: 17vw;
+        height: 4vw;
       }
       .img3 {
-        width: 27vw;
+        width: 20vw;
       }
     }
   }
@@ -478,6 +522,12 @@
           }
         }
       }
+      .zuopin-content {
+        height: 86vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .hecheng-content {
         display: flex;
         justify-content: center;
@@ -521,7 +571,7 @@
       }
       .shen-long-content {
         width: 100vw;
-        height: 131vw;
+        height: 120vw;
         display: flex;
         justify-content: center;
         align-items: center;
