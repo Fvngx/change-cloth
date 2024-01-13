@@ -63,6 +63,8 @@
   import store from '@/store'
   import http from '../../js/http'
   import munes from '../../components/munes.vue'
+  import { showToast } from 'vant'
+  import 'vant/lib/index.css'
   const list = ref([
     {
       id: '1',
@@ -145,9 +147,11 @@
       userInfo = {}
     }
     http.post('getuser', userInfo).then((res) => {
+      showToast('igg')
       if (res.code === 200) {
         console.log(res.data)
         user.value = res.data
+        window.localStorage.setItem('userInfo', JSON.stringify(user))
       }
     })
     http.post('getRank').then((res) => {

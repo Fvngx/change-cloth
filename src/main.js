@@ -4,6 +4,7 @@ import store from '@/store'
 import loading from '@/plugins/loading/index.js'
 import Carousel3d from 'vue3-carousel-3d'
 import router from './router'
+import 'vant/lib/index.css'
 
 import 'vue3-carousel-3d/dist/index.css'
 

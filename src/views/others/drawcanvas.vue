@@ -732,7 +732,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      animation: ani 2s forwards;
+      // display: block;
+      animation: ani 2s;
+      -webkit-animation: ani 2s;
       .post-content {
         position: relative;
         width: 80vw;
@@ -757,11 +759,15 @@
   @keyframes ani {
     0% {
       opacity: 0.2;
-      transform: scale(0.2) rotateY(0deg);
+      transform: scale(0.2) rotate(-540deg);
+    }
+    80% {
+      opacity: 0.8;
+      transform: scale(0.7) rotate(0deg);
     }
     100% {
       opacity: 1;
-      transform: scale(1) rotateY(720deg);
+      transform: scale(1) rotate(0deg);
     }
   }
 </style>
