@@ -1,4 +1,11 @@
-const _baseurl = '/assets'
+if (process.env.NODE_ENV !== 'production') {
+  console.log('开发环境')
+  window.baseurl = '/assets'
+} else {
+  console.log('生产环境')
+  window.baseurl = '/h5/jf2020/assets'
+}
+const _baseurl = window.baseurl
 const v = 'v=1'
 export default {
   bg: {
@@ -72,6 +79,7 @@ export default {
     head: _baseurl + '/img/other/head.png?' + v,
     yun1: _baseurl + '/img/other/yun1.png?' + v,
     line: _baseurl + '/img/other/line.png?' + v,
-    yun_ceng: _baseurl + '/img/other/yun_ceng.png?' + v
+    yun_ceng: _baseurl + '/img/other/yun_ceng.png?' + v,
+    qr: _baseurl + '/img/other/qr.png?' + v
   }
 }

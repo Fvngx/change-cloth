@@ -19,6 +19,7 @@
         <div
           class="back center-bg"
           :style="`background-image: url(${data.btn.back});left:${canvasOffset.left + 20}px`"
+          @click="toBack"
         ></div>
         <div
           class="tools center-bg"
@@ -67,21 +68,15 @@
           </div>
         </div>
         <div class="bottm-btns">
-          <div
-            class="create-btn btn center-bg"
-            :style="`background-image: url(${data.btn.create})`"
-            @click="toCreate"
-          ></div>
-          <div
-            class="use-btn btn center-bg"
-            :style="`background-image: url(${data.btn.usebizhi})`"
-            @click="toUsebizhi"
-          ></div>
-          <div
-            class="share-btn btn center-bg"
-            :style="`background-image: url(${data.btn.shareto})`"
-            @click="toShare"
-          ></div>
+          <div class="create-btn btn" @click="toCreate">
+            <img :src="data.btn.create" :alt="data.btn.create" />
+          </div>
+          <div class="use-btn btn" @click="toUsebizhi">
+            <img :src="data.btn.usebizhi" :alt="data.btn.usebizhi" />
+          </div>
+          <div class="share-btn btn" @click="toShare">
+            <img :src="data.btn.shareto" :alt="data.btn.shareto" />
+          </div>
         </div>
         <canvas ref="myCanvas" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend"> </canvas>
       </div>
@@ -128,6 +123,19 @@
         ></div>
       </div>
     </div>
+    <div v-if="endPost" class="post-fixed">
+      <div class="post-body">
+        <div class="post-content">
+          <img class="post-end" :src="endPost" :alt="endPost" />
+        </div>
+        <div class="tips">长按保存海报，立即去分享大作吧~</div>
+        <div
+          class="queding-btn center-bg"
+          :style="`background-image: url(${data.btn.queding})`"
+          @click="hideFixed"
+        ></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -135,6 +143,7 @@
   import { computed, ref, onMounted, nextTick } from 'vue'
   import munes from '../../components/munes.vue'
   import { throttle } from '@/utils'
+  // import http from '../../js/http'
   import data from '@/js/data'
 
   import store from '@/store'
@@ -180,6 +189,7 @@
   const canvasHistory = ref([])
   const showBizhi = ref(false)
   const curBizhi = ref('')
+  const endPost = ref()
 
   const slides = ref([
     {
@@ -214,6 +224,10 @@
     if (curBizhi.value) return curBizhi.value
     return data.bg.default
   })
+
+  const toBack = () => {
+    store.commit('changeShowType', 'introduce')
+  }
 
   // 是否显示工具
   const changeTools = () => {
@@ -255,12 +269,27 @@
       } else {
         await drawImage(canvasHistory.value[len - 1], 0, 0, myCanvas.value.width, myCanvas.value.height)
       }
+      await drawImage(
+        data.other.qr,
+        myCanvas.value.width - 80 * ratio.value,
+        myCanvas.value.height - 80 * ratio.value,
+        50 * ratio.value,
+        50 * ratio.value
+      )
       const res = myCanvas.value.toDataURL('image/png')
-      let img = new Image()
-      img.src = res
-      document.body.appendChild(img)
+      endPost.value = res
+
+      // http.post('setImg', { openid: JSON.parse(localStorage.getItem('userInfo')).openid, base64: res }).then((res) => {
+      //   console.log(res)
+      // })
+
       ctx.value.clearRect(0, 0, canvasOpt.value.realWidth * ratio.value, canvasOpt.value.realHeight * ratio.value)
-      drawImage(canvasHistory.value[len - 1], 0, 0, myCanvas.value.width, myCanvas.value.height)
+      if (len <= 0) {
+        await drawDradgonHead()
+      } else {
+        await drawImage(canvasHistory.value[len - 1], 0, 0, myCanvas.value.width, myCanvas.value.height)
+      }
+      // drawImage(canvasHistory.value[len - 1], 0, 0, myCanvas.value.width, myCanvas.value.height)
     } catch (error) {
       console.log(error)
     }
@@ -280,10 +309,12 @@
   }
   const hideFixed = () => {
     showBizhi.value = false
+    endPost.value = ''
   }
 
   // 绘制开始
   const touchstart = (e) => {
+    console.log(e, canvasOpt.value.info)
     canvasOpt.value.drawing = true
     const [x, y] = [
       e.touches[0].clientX - canvasOpt.value.info.left,
@@ -353,7 +384,7 @@
   const canvasInit = () => {
     ctx.value = myCanvas.value.getContext('2d')
     ctx.value.lineJoin = 'round'
-    ctx.value.lineCap = 'round'
+    // ctx.value.lineCap = 'round'
     ratio.value = getPixelRatio(ctx.value)
 
     let height = canvasBox.value.offsetHeight
@@ -372,10 +403,6 @@
     myCanvas.value.width = width * ratio.value
     myCanvas.value.height = height * ratio.value
     console.log(myCanvas.value.width, myCanvas.value.height)
-
-    nextTick(() => {
-      canvasOpt.value.info = myCanvas.value.getBoundingClientRect()
-    })
   }
 
   // 清画布
@@ -476,9 +503,15 @@
   //   })
   // }
 
-  onMounted(() => {
+  onMounted(async () => {
     canvasInit()
-    drawDradgonHead()
+    await drawDradgonHead()
+    nextTick(() => {
+      setTimeout(() => {
+        canvasOpt.value.info = myCanvas.value.getBoundingClientRect()
+        console.log(canvasOpt.value)
+      }, 700)
+    })
     // canvasImgInit()
   })
 </script>
@@ -675,11 +708,60 @@
           display: flex;
           justify-content: space-between;
           .btn {
-            width: 25vw;
-            height: 6vw;
+            width: 30%;
+            img {
+              width: 100%;
+            }
           }
         }
       }
+    }
+  }
+  .post-fixed {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    .post-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: ani 2s forwards;
+      .post-content {
+        position: relative;
+        width: 80vw;
+        height: 110vw;
+        img {
+          width: 100%;
+        }
+      }
+      .tips {
+        margin-top: 4vw;
+        color: #efd7af;
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .queding-btn {
+        width: 34vw;
+        height: 8vw;
+        margin-top: 10vw;
+      }
+    }
+  }
+  @keyframes ani {
+    0% {
+      opacity: 0.2;
+      transform: scale(0.2) rotateY(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotateY(720deg);
     }
   }
 </style>

@@ -9,8 +9,8 @@
     <transition name="up">
       <zhulipage key="3" v-if="showType === 'zhuli'" />
     </transition>
-    <transition name="up" v-if="showType === 'draw'">
-      <drawcanvas />
+    <transition name="up">
+      <drawcanvas v-if="showType === 'draw'" />
     </transition>
     <!-- <register key="3" v-else-if="showType === 'register'" /> -->
     <!-- <transition name="up"> -->

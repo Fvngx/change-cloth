@@ -17,7 +17,7 @@
         <div class="jifen center-bg" :style="`background-image: url(${data.btn.jifen})`" @click="toJifen"></div>
       </div>
 
-      <div class="txt">今日已分享1次</div>
+      <div class="txt">今日已分享{{ user.sharenum }}次</div>
       <munes />
     </div>
 
@@ -25,166 +25,28 @@
       <div class="body">
         <div class="content user-content paiming-content center-bg" :style="`background-image: url(${data.bg.bg3})`">
           <div class="title center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-          <div class="user-list">
-            <div class="user-item">
+          <div class="user-list" v-if="jifenpaihang.length">
+            <div class="user-item" v-for="(user, index) in jifenpaihang" :key="user.id">
               <div class="user">
-                <div class="pai-ming">1</div>
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
+                <div class="pai-ming">{{ index + 1 }}</div>
+                <div
+                  class="avatar center-bg"
+                  :style="`background-image: url(${user.headimgurl || data.btn.zhuli})`"
+                ></div>
                 <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">{{ user.nickname }}</span>
                 </div>
               </div>
               <div class="info">
-                <div class="name-num">1000</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-num">{{ user.num }}</div>
               </div>
             </div>
           </div>
+          <div class="user-list" v-else>
+            <div class="pai-ming" style="margin-top: 10vw">暂无排名数据</div>
+          </div>
         </div>
-        <div class="tips">您当前在积分排行榜第342位</div>
+        <div class="tips">您当前在积分排行榜第{{ paiming }}位</div>
         <div
           class="queding-btn jifen-btn center-bg"
           :style="`background-image: url(${data.btn.queding})`"
@@ -196,9 +58,10 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import data from '@/js/data'
   import store from '@/store'
+  import http from '../../js/http'
   import munes from '../../components/munes.vue'
   const list = ref([
     {
@@ -252,9 +115,14 @@
   ])
   const showJifen = ref(false)
 
+  const user = ref({})
+  const jifenpaihang = ref([])
+  const paiming = ref(0)
+
   const toSquare = (item) => {
     console.log(item)
     store.commit('changeSquare', item.type)
+    store.commit('changeShowType', 'draw')
   }
 
   const toShare = () => {
@@ -268,6 +136,28 @@
   const hideFixed = () => {
     showJifen.value = false
   }
+
+  onMounted(() => {
+    let userInfo = localStorage.getItem('userInfo')
+    if (userInfo) {
+      userInfo = JSON.parse(userInfo)
+    } else {
+      userInfo = {}
+    }
+    http.post('getuser', userInfo).then((res) => {
+      if (res.code === 200) {
+        console.log(res.data)
+        user.value = res.data
+      }
+    })
+    http.post('getRank').then((res) => {
+      console.log(res)
+      if (res.code == 200) {
+        jifenpaihang.value = res.data.list
+        paiming.value = res.data.myrank
+      }
+    })
+  })
 </script>
 
 <style lang="less">
