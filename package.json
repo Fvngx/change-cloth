@@ -14,7 +14,6 @@
     "html2canvas": "^1.4.1",
     "vant": "^4.8.2",
     "vue": "^3.0.0",
-    "vue-router": "^4.2.5",
     "vue3-carousel-3d": "^1.0.4",
     "vuex": "^4.0.2"
   },
