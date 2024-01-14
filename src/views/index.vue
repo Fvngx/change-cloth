@@ -1,16 +1,16 @@
 <template>
   <div :class="`wrapper app-${showType}`">
     <transition name="up">
-      <loadingData key="1" v-if="showType === 'loading'" />
+      <loadingData key="1" v-if="loading" @done="loadingDone" />
     </transition>
     <transition name="up">
-      <introduce key="2" v-if="showType === 'introduce'" />
+      <introduce key="2" v-if="!loading && !isLog && showType === 'introduce'" mode="out-in" />
     </transition>
     <transition name="up">
-      <zhulipage key="3" v-if="showType === 'zhuli'" />
+      <drawcanvas v-if="!loading && !isLog && showType === 'draw'" />
     </transition>
     <transition name="up">
-      <drawcanvas v-if="showType === 'draw'" />
+      <zhulipage key="3" v-if="!loading && isLog" />
     </transition>
     <!-- <register key="3" v-else-if="showType === 'register'" /> -->
     <!-- <transition name="up"> -->
@@ -24,43 +24,34 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
+  import { computed, ref, onMounted } from 'vue'
   import loadingData from './others/loadingData.vue'
   import introduce from './others/introduce.vue'
   import zhulipage from './others/zhuli.vue'
   import drawcanvas from './others/drawcanvas.vue'
-  // import register from './others/register.vue'
-  // import picChoose from './others/pic-choose.vue'
-  // import myMass from './others/mass.vue'
-  // import award from './others/award.vue'
 
   import store from '@/store'
 
-  const showType = computed(() => store.state.showType)
-  // export default defineComponent({
-  //   components: {
-  //     loading,
-  //     introduce,
-  //     register,
-  //     picChoose,
-  //     myMass,
-  //     award
-  //   },
-  //   computed: {
-  //     showType() {
-  //       return this.$store.state.showType
-  //     }
-  //   },
-  //   setup() {
-  //     // const showType = ref('introduce')
-  //     onMounted(() => {
-  //       // showType.value = 'introduce'
-  //     })
-  //     return {
-  //       // showType
-  //     }
-  //   }
-  // })
+  const loading = ref(true)
+
+  const showType = computed(() => {
+    return store.state.showType
+  })
+  const isLog = computed(() => {
+    return store.state.isLog
+  })
+
+  const loadingDone = () => {
+    loading.value = false
+  }
+  onMounted(() => {
+    const params = new URL(window.location.href).searchParams
+    const isToLog = params.get('isToLog')
+    console.log(isToLog)
+    if (isToLog && isToLog === '1') {
+      store.commit('changeIsLog', true)
+    }
+  })
 </script>
 
 <style lang="less">

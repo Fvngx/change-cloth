@@ -1,7 +1,23 @@
 <template>
   <div class="draw-canvas center-bg" :style="`background-image: url(${data.bg.bg1})`">
     <div class="banner">
-      <img :src="data.banner[square]" :alt="data.banner[square]" />
+      <div
+        v-if="userInfo.selected === square.id"
+        style="
+          position: absolute;
+          right: 3vw;
+          top: 3vw;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0.7);
+          padding: 6px 8px;
+          border-radius: 20px;
+        "
+      >
+        已参与本场馆
+      </div>
+      <img :src="data.banner[square.type]" :alt="data.banner[square.type]" />
     </div>
     <div class="line-bg center-bg" :style="`background-image: url(${data.other.line})`"></div>
 
@@ -88,7 +104,7 @@
 
     <div v-if="showBizhi" class="fixed">
       <div class="body">
-        <div class="content bizhi-content center-bg" :style="`background-image: url(${data.bg.bg3})`">
+        <div class="content usebizhi-content center-bg" :style="`background-image: url(${data.bg.bg6})`">
           <div class="title center-bg" :style="`background-image: url(${data.btn.bizhi})`"></div>
           <carousel-3d
             ref="carousel"
@@ -106,15 +122,15 @@
               <img :src="item.src" alt="img" @click="chooseSlide(i)" />
             </slide>
           </carousel-3d>
-          <div class="info">
+          <!-- <div class="info">
             <div class="title-txt">祥龙献瑞×4</div>
             <div class="detail">
               <div class="line">当前壁纸可兑换500钻石会积分，详见游戏规则</div>
             </div>
-          </div>
-          <div class="zhaohuan-box center-bg" :style="`background-image: url(${data.bg.bg4})`">
+          </div> -->
+          <!-- <div class="zhaohuan-box center-bg" :style="`background-image: url(${data.bg.bg4})`">
             <div class="zhaohuan center-bg" :style="`background-image: url(${data.btn.zhaohuan})`"></div>
-          </div>
+          </div> -->
         </div>
         <div
           class="queding-btn center-bg"
@@ -140,13 +156,15 @@
 </template>
 
 <script setup>
-  import { computed, ref, onMounted, nextTick } from 'vue'
+  import { computed, ref, onMounted, watch, nextTick } from 'vue'
   import munes from '../../components/munes.vue'
   import { throttle } from '@/utils'
-  // import http from '../../js/http'
+  import { getBizhi } from '@/js/utils'
+  import http from '../../js/http'
   import data from '@/js/data'
 
   import store from '@/store'
+  import { showToast } from 'vant'
 
   const canvasBox = ref()
   const myCanvas = ref()
@@ -210,6 +228,7 @@
     }
   ])
   const curSlide = ref(0)
+
   const square = computed(() => store.state.square)
   const canvasOffset = computed(() => {
     if (myCanvas.value) {
@@ -224,6 +243,26 @@
     if (curBizhi.value) return curBizhi.value
     return data.bg.default
   })
+  const userInfo = computed(() => {
+    return store.state.userInfo
+  })
+
+  watch(
+    userInfo.value,
+    (user) => {
+      const bizhi = getBizhi(user, false)
+      slides.value = bizhi
+    },
+    { immediate: true }
+  )
+
+  const isCanNoDraw = () => {
+    if (userInfo.value.selected !== square.value.id) {
+      showToast('请到您参与的广场绘画')
+      return true
+    }
+    return false
+  }
 
   const toBack = () => {
     store.commit('changeShowType', 'introduce')
@@ -248,10 +287,12 @@
   }
   // 撤销
   const revoke = () => {
+    if (isCanNoDraw()) return
     undo()
   }
   // 重置
   const reset = () => {
+    if (isCanNoDraw()) return
     if (canvasHistory.value.length <= 0) return
     drawbizhi(drawBg.value)
     clearDraw()
@@ -259,6 +300,7 @@
   }
 
   const toCreate = async () => {
+    if (isCanNoDraw()) return
     // await canvasImgInit(drawBg.value)
     try {
       await drawBorder()
@@ -276,12 +318,11 @@
         50 * ratio.value,
         50 * ratio.value
       )
-      const res = myCanvas.value.toDataURL('image/png')
+      const res = myCanvas.value.toDataURL('image/png', 0.8)
       endPost.value = res
+      // console.log(res)
 
-      // http.post('setImg', { openid: JSON.parse(localStorage.getItem('userInfo')).openid, base64: res }).then((res) => {
-      //   console.log(res)
-      // })
+      http.post('setImg', { openid: userInfo.value.openid, base64: res })
 
       ctx.value.clearRect(0, 0, canvasOpt.value.realWidth * ratio.value, canvasOpt.value.realHeight * ratio.value)
       if (len <= 0) {
@@ -295,6 +336,7 @@
     }
   }
   const toUsebizhi = () => {
+    if (isCanNoDraw()) return
     showBizhi.value = true
   }
   const toShare = () => {}
@@ -314,7 +356,6 @@
 
   // 绘制开始
   const touchstart = (e) => {
-    console.log(e, canvasOpt.value.info)
     canvasOpt.value.drawing = true
     const [x, y] = [
       e.touches[0].clientX - canvasOpt.value.info.left,
@@ -328,6 +369,8 @@
   // 绘制中
   const touchmove = throttle((e) => {
     if (!canvasOpt.value.drawing) return
+    if (isCanNoDraw()) return
+
     const [x, y] = [
       e.touches[0].clientX - canvasOpt.value.info.left,
       // e.touches[0].clientY
@@ -376,7 +419,6 @@
       ctx.oBackingStorePixelRatio ||
       ctx.backingStorePixelRatio ||
       1
-    console.log('backingStore', backingStore, window.devicePixelRatio)
     return (window.devicePixelRatio || 1) / backingStore
   }
 
@@ -402,7 +444,6 @@
 
     myCanvas.value.width = width * ratio.value
     myCanvas.value.height = height * ratio.value
-    console.log(myCanvas.value.width, myCanvas.value.height)
   }
 
   // 清画布
@@ -414,7 +455,7 @@
   const undo = () => {
     if (canvasHistory.value.length <= 0) return
     canvasHistory.value = canvasHistory.value.slice(0, -1)
-    console.log(canvasHistory.value)
+    // console.log(canvasHistory.value)
     const len = canvasHistory.value.length
     if (len > 0) {
       ctx.value.clearRect(0, 0, canvasOpt.value.realWidth * ratio.value, canvasOpt.value.realHeight * ratio.value)
@@ -447,7 +488,7 @@
       const img = new Image()
       img.src = src
       img.onload = () => {
-        console.log(src, startX, startY, endX, endY)
+        // console.log(src, startX, startY, endX, endY)
         ctx.value.drawImage(img, startX, startY, endX, endY)
         resolve(true)
       }
@@ -509,7 +550,6 @@
     nextTick(() => {
       setTimeout(() => {
         canvasOpt.value.info = myCanvas.value.getBoundingClientRect()
-        console.log(canvasOpt.value)
       }, 700)
     })
     // canvasImgInit()
@@ -717,6 +757,16 @@
       }
     }
   }
+  .fixed {
+    .body {
+      .usebizhi-content {
+        height: 86vw;
+        .carousel-3d-container {
+          margin-top: 10vw;
+        }
+      }
+    }
+  }
   .post-fixed {
     position: fixed;
     width: 100%;
@@ -743,6 +793,7 @@
           width: 100%;
         }
       }
+
       .tips {
         margin-top: 4vw;
         color: #efd7af;

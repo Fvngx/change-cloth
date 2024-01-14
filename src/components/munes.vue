@@ -30,162 +30,23 @@
       <div class="body">
         <div class="content user-content center-bg" :style="`background-image: url(${data.bg.bg3})`">
           <div class="title center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-          <div class="user-list">
-            <div class="user-item">
+          <div class="user-list" v-if="helpList.length">
+            <div class="user-item" v-for="help in helpList" :key="help.id">
               <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
+                <div class="avatar center-bg" :style="`background-image: url(${help.headimgurl})`"></div>
                 <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
+                  <span class="name-txt">{{ help.nickname }}</span>
                 </div>
               </div>
               <div class="info">
                 <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
+                <div class="name-line">您获得了一张{{ bizhiObj[help.wallpaper] }}壁纸</div>
               </div>
             </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
-            </div>
-            <div class="user-item">
-              <div class="user">
-                <div class="avatar center-bg" :style="`background-image: url(${data.btn.zhuli})`"></div>
-                <div class="user-name">
-                  <span class="name-txt">WEsdfasdfsdfsfa</span>
-                </div>
-              </div>
-              <div class="info">
-                <div class="name-line">感谢ta的帮助</div>
-                <div class="name-line">您获得了一张祥龙献瑞壁纸</div>
-              </div>
+          </div>
+          <div class="user-list" v-else>
+            <div class="user-name" style="margin-top: 10vw; color: #b2170d; font-size: 12px">
+              <span class="name-txt">暂无好友助力，请分享给好友为您助力</span>
             </div>
           </div>
         </div>
@@ -200,35 +61,41 @@
       <div class="body">
         <div class="content bizhi-content center-bg" :style="`background-image: url(${data.bg.bg3})`">
           <div class="title center-bg" :style="`background-image: url(${data.btn.bizhi})`"></div>
-          <carousel-3d
-            ref="carousel"
-            @before-slide-change="onSlideChange"
-            :autoplayTimeout="3000"
-            :perspective="35"
-            :display="3"
-            :animationSpeed="1000"
-            :width="172"
-            :height="248"
-            :controlsVisible="false"
-            :controlsHeight="60"
-          >
-            <slide v-for="(item, i) in slides" :index="i" :key="i">
-              <img :src="item.src" alt="img" />
-            </slide>
-          </carousel-3d>
-          <div class="info">
-            <div class="title-txt">祥龙献瑞×4</div>
-            <div class="detail">
-              <div class="line">当前壁纸可兑换500钻石会积分，详见游戏规则</div>
+          <template v-if="slides.length">
+            <carousel-3d
+              ref="carousel"
+              @before-slide-change="onSlideChange"
+              :autoplayTimeout="3000"
+              :perspective="35"
+              :display="3"
+              :animationSpeed="1000"
+              :width="172"
+              :height="248"
+              :controlsVisible="false"
+              :controlsHeight="60"
+            >
+              <slide v-for="(item, i) in slides" :index="i" :key="i">
+                <img :src="item.src" alt="img" />
+              </slide>
+            </carousel-3d>
+            <div class="info">
+              <div class="title-txt">{{ slides[curIndex].name }}×{{ slides[curIndex].num }}</div>
+              <div class="detail">
+                <div class="line">
+                  当前壁纸可兑换 {{ slides[curIndex].jifen * slides[curIndex].num }} 钻石会积分，详见游戏规则
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="zhaohuan-box center-bg" :style="`background-image: url(${data.bg.bg4})`">
-            <div
-              class="zhaohuan center-bg"
-              :style="`background-image: url(${data.btn.zhaohuan})`"
-              @click="zhuanhuan"
-            ></div>
-          </div>
+
+            <div class="zhaohuan-box center-bg" :style="`background-image: url(${data.bg.bg4})`">
+              <div
+                class="zhaohuan center-bg"
+                :style="`background-image: url(${data.btn.zhaohuan})`"
+                @click="zhuanhuan"
+              ></div>
+            </div>
+          </template>
+          <div v-else class="empty" style="margin-top: 10vw; color: #b2170d; font-size: 12px">暂未获得壁纸</div>
         </div>
         <div
           class="queding-btn center-bg"
@@ -253,17 +120,11 @@
             :controlsVisible="false"
             :controlsHeight="60"
           >
-            <slide v-for="(item, i) in slides" :index="i" :key="i">
-              <img :src="item.src" alt="img" />
+            <slide v-for="(item, i) in zuopin" :index="i" :key="i">
+              <img :src="`${bastHost}${item.url}`" alt="img" />
             </slide>
+            <div v-if="zuopin.length === 0" style="color: #b2170d; font-size: 12px">暂无作品，请去绘制您的作品</div>
           </carousel-3d>
-          <div class="zhaohuan-box center-bg" :style="`background-image: url(${data.bg.bg4})`">
-            <div
-              class="zhaohuan center-bg"
-              :style="`background-image: url(${data.btn.zhaohuan})`"
-              @click="zhuanhuan"
-            ></div>
-          </div>
         </div>
         <div
           class="queding-btn center-bg"
@@ -276,12 +137,14 @@
       <div class="body">
         <div class="content hecheng-content">
           <div class="guang center-bg" :style="`background-image: url(${data.other.guang})`">
-            <div class="hecheng center-bg" :style="`background-image: url(${data.btn.hecheng})`"></div>
-            <img class="img img1" key="1" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
-            <img class="img img2" key="2" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
-            <img class="img img3" key="3" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
-            <img class="img img4" key="4" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
-            <img class="img img5" key="5" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
+            <div class="hechengbizhi-box">
+              <div class="hecheng center-bg" :style="`background-image: url(${data.btn.hecheng})`"></div>
+              <img class="img img1" key="1" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
+              <img class="img img2" key="2" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
+              <img class="img img3" key="3" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
+              <img class="img img4" key="4" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
+              <img class="img img5" key="5" :src="data.bg.bizhi1" :alt="data.bg.bizhi1" />
+            </div>
           </div>
         </div>
       </div>
@@ -302,33 +165,47 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted, computed, watch } from 'vue'
   import data from '@/js/data'
-  import { Carousel3d, Slide } from 'vue3-carousel-3d'
+  import http from '../js/http'
+  import store from '@/store'
+
+  import { getBizhi } from '@/js/utils'
+  import { showToast } from 'vant'
 
   const fixed = ref('')
   const carousel = ref()
-  const slides = ref([
-    {
-      id: '1',
-      src: data.bg.bizhi1
+  const slides = ref([])
+  const curIndex = ref(0)
+  const zuopin = ref([])
+  const bastHost = 'https://sws.beibeixy.com/h5/gcw/'
+
+  const helpList = ref([])
+  const bizhiObj = ref({
+    1: '祥龙献瑞',
+    2: '祥龙献瑞',
+    3: '祥龙献瑞',
+    4: '祥龙献瑞',
+    5: '祥龙献瑞'
+  })
+
+  const userInfo = computed(() => {
+    return store.state.userInfo
+  })
+
+  watch(
+    userInfo.value,
+    (user) => {
+      const bizhi = getBizhi(userInfo.value, true)
+      console.log(user, bizhi)
+      slides.value = bizhi
     },
-    {
-      id: '1',
-      src: data.bg.bizhi1
-    },
-    {
-      id: '1',
-      src: data.bg.bizhi1
-    },
-    {
-      id: '1',
-      src: data.bg.bizhi1
-    }
-  ])
+    { immediate: true, deep: true }
+  )
 
   const onSlideChange = (temp) => {
     console.log(carousel.value, 'xxx', temp)
+    curIndex.value = temp
     // this.carouselIndex = temp
   }
 
@@ -338,8 +215,10 @@
     } else if (p === 'bizhi') {
       fixed.value = 'showBizhi'
     } else if (p === 'zuopin') {
+      getZuopin()
       fixed.value = 'showZuopin'
     } else if (p === 'zhuli') {
+      getZhuli()
       fixed.value = 'showZhuli'
     }
   }
@@ -350,12 +229,72 @@
 
   const zhuanhuan = () => {
     console.log('zhaohuan')
+    if (!has5bizhi()) {
+      showToast('5种壁纸未满')
+      return
+    }
     fixed.value = 'showHecheng'
-    let timer = setTimeout(() => {
-      clearTimeout(timer)
-      fixed.value = 'showShenlong'
-    }, 1000)
+    heChengShenlong().then((res) => {
+      if (res.code === 200) {
+        fixed.value = 'showShenlong'
+        getUser()
+      } else {
+        showToast(res.msg)
+        fixed.value = ''
+      }
+    })
   }
+
+  const has5bizhi = () => {
+    let num = 0
+    slides.value.map((item) => {
+      if (item.id !== '6') {
+        num++
+      }
+    })
+    if (num === 5) {
+      return true
+    }
+    return false
+  }
+
+  // 合成
+  const heChengShenlong = () => {
+    return http.post('setSynthesis', { openid: userInfo.value.openid })
+  }
+
+  // 获取作品列表
+  const getZuopin = () => {
+    http.post('getImg', { openid: userInfo.value.openid }).then((res) => {
+      if (res.code === 200) {
+        zuopin.value = res.data
+      }
+    })
+  }
+
+  const getUser = () => {
+    let userInfo = store.state.userInfo
+    http.post('getuser', userInfo).then((res) => {
+      if (res.code === 200) {
+        let user = res.data
+        store.commit('changeUserInfo', user)
+      }
+    })
+  }
+
+  // 获取助力榜
+  const getZhuli = () => {
+    http.post('getHelpList', { openid: userInfo.value.openid }).then((res) => {
+      if (res.code === 200) {
+        helpList.value = res.data
+      }
+    })
+  }
+
+  onMounted(() => {
+    getZuopin()
+    getZhuli()
+  })
 </script>
 
 <style lang="less">
@@ -528,6 +467,15 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          .hechengbizhi-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: scaler 2s linear infinite;
+          }
           .hecheng {
             width: 19vw;
             height: 19vw;
@@ -573,6 +521,17 @@
         width: 34vw;
         height: 8vw;
         margin-top: 10vw;
+      }
+    }
+    @keyframes scaler {
+      0% {
+        transform: scale(0.6);
+      }
+      50% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0.6);
       }
     }
   }

@@ -1,6 +1,8 @@
 const state = {
+  userInfo: {},
   showType: 'introduce',
-  square: 'jinmao'
+  isLog: false,
+  square: {}
 }
 
 export default state

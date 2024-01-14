@@ -81,10 +81,15 @@
 
 .up-enter-active,
 .up-leave-active {
-  transition: all 0.6s ease;
+  transition: all 0.4s ease;
 }
 .up-enter-from,
 .up-leave-to {
   opacity: 0;
-  // transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.up-enter-to,
+.up-leave-from {
+  opacity: 1;
+  // transform: translateY(0%);
 }

@@ -19,10 +19,17 @@
 <script setup>
   import data from '@/js/data'
   import store from '@/store'
+  // import http from '../../js/http'
+  import { useRoute } from 'vue-router'
+  const route = useRoute()
 
-  const toZhuli = () => {}
+  const toZhuli = () => {
+    console.log(route)
+    // http.post('getLog', {id: })
+  }
   const toStart = () => {
     store.commit('changeShowType', 'introduce')
+    store.commit('changeIsLog', false)
   }
 </script>
 

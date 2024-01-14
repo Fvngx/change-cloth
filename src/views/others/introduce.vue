@@ -63,8 +63,8 @@
   import store from '@/store'
   import http from '../../js/http'
   import munes from '../../components/munes.vue'
-  import { showToast } from 'vant'
-  import 'vant/lib/index.css'
+  // import { showToast } from 'vant'
+
   const list = ref([
     {
       id: '1',
@@ -123,7 +123,12 @@
 
   const toSquare = (item) => {
     console.log(item)
-    store.commit('changeSquare', item.type)
+    if (user.value.selected == 0) {
+      http.post('setSelected', { openid: user.value.openid, select: item.id }).then(() => {
+        getUser()
+      })
+    }
+    store.commit('changeSquare', item)
     store.commit('changeShowType', 'draw')
   }
 
@@ -139,21 +144,20 @@
     showJifen.value = false
   }
 
-  onMounted(() => {
-    let userInfo = localStorage.getItem('userInfo')
-    if (userInfo) {
-      userInfo = JSON.parse(userInfo)
-    } else {
-      userInfo = {}
-    }
+  const getUser = () => {
+    let userInfo = store.state.userInfo
     http.post('getuser', userInfo).then((res) => {
-      showToast('igg')
       if (res.code === 200) {
         console.log(res.data)
         user.value = res.data
-        window.localStorage.setItem('userInfo', JSON.stringify(user))
+        store.commit('changeUserInfo', user.value)
       }
     })
+  }
+
+  onMounted(() => {
+    getUser()
+
     http.post('getRank').then((res) => {
       console.log(res)
       if (res.code == 200) {

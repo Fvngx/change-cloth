@@ -24,12 +24,13 @@
 </template>
 
 <script setup>
-  import { onMounted, ref } from 'vue'
+  import { onMounted, ref, defineEmits } from 'vue'
   import data from '@/js/data'
   // import store from '@/store'
 
   const loadPercent = ref(5)
   const baseurl = ref('')
+  const emits = defineEmits(['done'])
   let mytime = 0
   let loadNum = 0
 
@@ -70,6 +71,7 @@
       if (loadNum === arr.length) {
         mytime = setTimeout(() => {
           // console.log(1111)
+          emits('done')
           clearTimeout(mytime)
         }, 500)
       }
