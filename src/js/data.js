@@ -1,8 +1,8 @@
 if (process.env.NODE_ENV !== 'production') {
-  console.log('开发环境')
+  console.log('开发环境1')
   window.baseurl = '/assets'
 } else {
-  console.log('生产环境')
+  console.log('生产环境1')
   window.baseurl = '/h5/jf2020/assets'
 }
 const _baseurl = window.baseurl

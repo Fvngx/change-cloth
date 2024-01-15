@@ -1,10 +1,10 @@
 <template>
-  <audio id="myAudio" :src="'/assets/music/bgm.mp3?v=1'" preload="auto" loop="loop"></audio>
+  <audio id="myAudio" :src="`${baseurl}/assets/music/bgm.mp3?v=1`" preload="auto" loop="loop"></audio>
   <HomeIndex />
 </template>
 
 <script>
-  import { onMounted } from '@vue/runtime-core'
+  import { onMounted, ref } from '@vue/runtime-core'
   import HomeIndex from './views/index.vue'
 
   export default {
@@ -13,18 +13,24 @@
       HomeIndex
     },
     setup() {
+      const baseurl = ref('')
       onMounted(() => {
-        // function audioAutoPlay() {
-        //   document.getElementById('myAudio').play()
-        // }
-        // document.addEventListener('touchstart', audioAutoPlay, false)
-        // document.addEventListener('WeixinJSBridgeReady', audioAutoPlay, false)
-        // let audio = document.getElementById('myAudio')
-        // audio.onended = function () {
-        //   audio.load()
-        //   audio.play()
-        // }
+        baseurl.value = window.baseurl
+        function audioAutoPlay() {
+          document.getElementById('myAudio').play()
+        }
+        document.addEventListener('touchstart', audioAutoPlay, false)
+        document.addEventListener('WeixinJSBridgeReady', audioAutoPlay, false)
+        let audio = document.getElementById('myAudio')
+        audio.onended = function () {
+          audio.load()
+          audio.play()
+        }
       })
+
+      return {
+        baseurl
+      }
     }
   }
 </script>
