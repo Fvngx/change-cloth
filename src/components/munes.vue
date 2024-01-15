@@ -179,6 +179,7 @@
   const curIndex = ref(0)
   const zuopin = ref([])
   const bastHost = 'https://sws.beibeixy.com/h5/gcw/'
+  const bizhiList = ref([])
 
   const helpList = ref([])
   const bizhiObj = ref({
@@ -196,9 +197,8 @@
   watch(
     userInfo.value,
     (user) => {
-      const bizhi = getBizhi(userInfo.value, true)
-      console.log(user, bizhi)
-      slides.value = bizhi
+      slides.value = getBizhi(user, true)
+      bizhiList.value = getBizhi(user, false)
     },
     { immediate: true, deep: true }
   )
@@ -234,6 +234,9 @@
       return
     }
     fixed.value = 'showHecheng'
+    // setTimeout(() => {
+    //   fixed.value = 'showShenlong'
+    // }, 1000)
     heChengShenlong().then((res) => {
       if (res.code === 200) {
         fixed.value = 'showShenlong'
@@ -474,7 +477,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: scaler 2s linear infinite;
+            animation: scaler 1s linear infinite;
           }
           .hecheng {
             width: 19vw;
@@ -512,6 +515,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        animation: ani 1.5s;
+        -webkit-animation: ani 1.5s;
         .shen-long {
           width: 67vw;
           height: 92.5vw;

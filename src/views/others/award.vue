@@ -3,7 +3,6 @@
     <template v-if="isShiwu">
       <div class="title">恭喜获得: {{ title }}</div>
       <div class="form-title">请填写您的收货信息</div>
-      
     </template>
     <template v-else>
       <div class="title">恭喜获得: {{ title }}</div>
